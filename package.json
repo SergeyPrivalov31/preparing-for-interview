@@ -1,13 +1,12 @@
 {
   "name": "polyfill",
   "version": "1.0.0",
-  "description": "\"Studying to write polyfills\"",
+  "description": "Studying to write polyfills",
   "main": "index.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test mocha --no-warnings --ignore=node_modules/** **/*.test.js"
   },
-  "author": "Elena L.",
-  "license": "ISC",
+  "author": "Sergey P.",
   "devDependencies": {
     "chai": "^4.3.6",
     "mocha": "^9.2.2"
