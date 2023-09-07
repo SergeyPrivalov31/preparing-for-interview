@@ -40,7 +40,65 @@ describe("Testing myPolyfills", () => {
     });
   });
 
-  // TODO: create test for mySome function
+  describe("Testing mySome", () => {
+    it("Check - wrong type", () => {
+      function badFn() {
+        Array.prototype.mySome.call("test");
+      }
+      expect(badFn).to.throw(TypeError);
+    });
+    it("Check - no callback", () => {
+      function badFn() {
+        [1, 2, 3].mySome();
+      }
+      expect(badFn).to.throw(TypeError);
+    });
+    it("Check — simple loop", () => {
+      expect([1, 2, 3, 4].mySome((item) => item % 2 === 0)).to.deep.equal([1, 2, 3, 4].some((item) => item % 2 === 0));
+    });
+    it("Check — string", () => {
+      expect(Array.prototype.mySome.call("12345", (item) => item % 2 === 0)).to.deep.equal(
+        Array.prototype.some.call("12345", (item) => item % 2 === 0)
+      );
+    });
+    it("Check — properties", () => {
+      const arr = [1, 2, 3, 4];
+      expect(arr.mySome((item, index, arr) => [item, index, arr])).to.deep.equal(
+        arr.some((item, index, arr) => [item, index, arr])
+      );
+    });
+  });
+
+  describe("Testing myEvery", () => {
+    it("Check - wrong type", () => {
+      function badFn() {
+        Array.prototype.myEvery.call("test");
+      }
+      expect(badFn).to.throw(TypeError);
+    });
+    it("Check - no callback", () => {
+      function badFn() {
+        [1, 2, 3].myEvery();
+      }
+      expect(badFn).to.throw(TypeError);
+    });
+    it("Check — simple loop", () => {
+      expect([1, 2, 3, 4].myEvery((item) => item % 2 === 0)).to.deep.equal(
+        [1, 2, 3, 4].every((item) => item % 2 === 0)
+      );
+    });
+    it("Check — string", () => {
+      expect(Array.prototype.myEvery.call("12345", (item) => item % 2 === 0)).to.deep.equal(
+        Array.prototype.every.call("12345", (item) => item % 2 === 0)
+      );
+    });
+    it("Check — properties", () => {
+      const arr = [1, 2, 3, 4];
+      expect(arr.myEvery((item, index, arr) => [item, index, arr])).to.deep.equal(
+        arr.every((item, index, arr) => [item, index, arr])
+      );
+    });
+  });
 
   // describe('Testing myReduce', () => {
   //     it('Check — wrong type', () => {
