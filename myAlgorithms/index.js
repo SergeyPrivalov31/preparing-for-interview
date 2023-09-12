@@ -38,6 +38,18 @@ function binarySearchWile(arr, searchNumber) {
 }
 
 //test ---> node index.js
-const data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-console.log("recursion --->  ", binarySearch(data, 7, 0, data.length - 1));
-console.log("while --->  ", binarySearchWile(data, 7));
+// const data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// console.log("recursion --->  ", binarySearch(data, 7, 0, data.length - 1));
+// console.log("while --->  ", binarySearchWile(data, 7));
+
+//полифил reverse
+Array.prototype.myReverse = function () {
+  console.log(this.length);
+  let result = [];
+  for (let i = this.length - 1; i >= 0; i--) {
+    result.push(this[i]);
+  }
+  return result;
+};
+// const arr = "123456";
+// console.log("reverse --> ", arr.split("").myReverse().join(""));
