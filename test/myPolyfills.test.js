@@ -100,6 +100,24 @@ describe("Testing myPolyfills", () => {
     });
   });
 
+  describe("Testing myReeverse", () => {
+    it("Check wrong type", () => {
+      function badFn() {
+        Array.prototype.myReverse.call(true);
+      }
+      expect(badFn).to.throw(TypeError);
+    });
+    it("Check null or undefined call", () => {
+      function badFn() {
+        Array.prototype.myReverse.call(null);
+      }
+      expect(badFn).to.throw(TypeError);
+    });
+    it("Check simple loop", () => {
+      expect([1, 2, 3].myReverse()).to.deep.equal([1, 2, 3].reverse());
+    });
+  });
+
   // describe('Testing myReduce', () => {
   //     it('Check — wrong type', () => {
   //         function badFn() {

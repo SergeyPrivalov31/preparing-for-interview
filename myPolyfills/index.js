@@ -50,4 +50,18 @@ module.exports = function () {
     }
     return isEveryElementPassed;
   };
+  //reverse
+  Array.prototype.myReverse = function () {
+    if (!(this instanceof Array || this instanceof String)) {
+      throw new TypeError("Array.prototype.myReverse was called on wrong type");
+    }
+    if (!this) {
+      throw new TypeError("Arra.prototype.myReverse called on null or undefined");
+    }
+    let result = [];
+    for (let i = this.length - 1; i >= 0; i--) {
+      result.push(this[i]);
+    }
+    return result;
+  };
 };
