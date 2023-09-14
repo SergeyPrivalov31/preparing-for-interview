@@ -64,4 +64,19 @@ module.exports = function () {
     }
     return result;
   };
+  //reduce
+  Array.prototype.myReduce = function (callback, initValue) {
+    if (!(this instanceof Array || this instanceof String)) {
+      throw new TypeError("Array.prototype.myReduce was called on wrong type");
+    }
+    if (typeof callback !== "function") {
+      throw new TypeError(`Array.prototype.myReduce ${callback} is not a function`);
+    }
+    let acc = arguments.length >= 2 ? initValue : this[0];
+    let iStart = arguments.length >= 2 ? 0 : 1;
+    for (let i = iStart; i < this.length; i++) {
+      acc = callback(acc, this[i], i, this);
+    }
+    return acc;
+  };
 };
