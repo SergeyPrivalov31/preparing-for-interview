@@ -1,20 +1,22 @@
 //РЕКУРСИВНЫЙ ПОДХОД --> на 70% быстрее for если элементов 10000, но в данном примере медленнее for на 3%
 function binarySearch(data, target, start, end) {
+  //1) Проверяем на соседнее число
+  //2) Находим середину и округляем до меньшего
+  //3) если среднее равно целевому значению, то выводим
+  //4) если массив уменьшился до двух значений, и цель между ними. Возвращаем ближнее значение.
+  //5) Проверяем, больше ли целевое значение чем среднее. Вызываем рекурсивно и подставляем middle на место start
+  //5) Проверяем, меньше ли целевое значение чем среднее. Вызываем рекурсивно и подставляем middle на место end
   console.log("recursion-call");
   if (end < 1) return data[0];
   let middle = Math.floor(start + (end - start) / 2);
-  // если среднее равно целевому значению, то выводим
+
   if (target == data[middle]) return data[middle];
-  // если массив уменьшился до двух значений, и цель между ними. Возвращаем ближнее значение.
+
   if (end - 1 == start) {
     return Math.abs(data[start] - target) < Math.abs(data[end] - target) ? data[start] : data[end];
   }
-  //Проверяем, больше ли целевое значение чем среднее
-  //Вызываем рекурсивно и подставляем middle на место start
   if (target > data[middle]) return binarySearch(data, target, middle, end);
 
-  //Проверяем, меньше ли целевое значение чем среднее
-  //Вызываем рекурсивно и подставляем middle на место end
   if (target < data[middle]) return binarySearch(data, target, start, middle);
 }
 
@@ -38,18 +40,7 @@ function binarySearchWile(arr, searchNumber) {
 }
 
 //test ---> node index.js
-// const data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-// console.log("recursion --->  ", binarySearch(data, 7, 0, data.length - 1));
-// console.log("while --->  ", binarySearchWile(data, 7));
 
-//полифил reverse
-Array.prototype.myReverse = function () {
-  console.log(this.length);
-  let result = [];
-  for (let i = this.length - 1; i >= 0; i--) {
-    result.push(this[i]);
-  }
-  return result;
-};
-// const arr = "123456";
-// console.log("reverse --> ", arr.split("").myReverse().join(""));
+const data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+console.log("recursion --->  ", binarySearch(data, 7, 0, data.length - 1));
+console.log("while --->  ", binarySearchWile(data, 7));
