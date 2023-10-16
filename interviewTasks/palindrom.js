@@ -49,3 +49,32 @@ function getPolindromConst(str) {
 }
 
 console.log(getPolindromConst(str));
+
+//ещё вариант
+
+function isPalindrome(str) {
+  // Приводим строку к нижнему регистру и удаляем пробелы
+  str = str.toLowerCase().replace(/\s/g, "");
+
+  // Задаем два указателя: один в начале строки, другой в конце
+  let start = 0;
+  let end = str.length - 1;
+
+  // Пока указатели не встретятся
+  while (start < end) {
+    // Если символы не совпадают, то строка не является палиндромом
+    if (str[start] !== str[end]) {
+      return false;
+    }
+
+    // Перемещаем указатели
+    start++;
+    end--;
+  }
+
+  // Если все символы совпали, то строка является палиндромом
+  return true;
+}
+
+console.log(isPalindrome("А роза упала на лапу Азора")); // true
+console.log(isPalindrome("Hello, world!")); // false
