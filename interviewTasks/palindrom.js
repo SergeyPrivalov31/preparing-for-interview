@@ -9,7 +9,7 @@ function getPolindrom(str) {
   return false;
 }
 
-console.log(getPolindrom(str));
+console.log('getPolindrom->',getPolindrom(str));
 
 function isEqual(firstChar, endChar) {
   return firstChar.toLowerCase() === endChar.toLowerCase();
@@ -19,8 +19,7 @@ function isLetter(char) {
   return char.toLowerCase() !== char.toUpperCase();
 }
 
-//O(1)
-//TODO: нужны тесты на правильность кода
+//O(n)
 function getPolindromConst(str) {
   let start = 0;
   let end = str.length - 1;
@@ -33,12 +32,12 @@ function getPolindromConst(str) {
       return false;
     }
 
-    if (isLetter(firstChar)) {
+    if (!isLetter(firstChar)) {
       start += 1;
       continue;
     }
 
-    if (isLetter(endChar)) {
+    if (!isLetter(endChar)) {
       end -= 1;
       continue;
     }
@@ -46,9 +45,10 @@ function getPolindromConst(str) {
     start += 1;
     end -= 1;
   }
+  return true
 }
 
-console.log(getPolindromConst(str));
+console.log('getPolindromConst -> ',getPolindromConst(str));
 
 //ещё вариант
 
@@ -76,5 +76,5 @@ function isPalindrome(str) {
   return true;
 }
 
-console.log(isPalindrome("А роза упала на лапу Азора")); // true
-console.log(isPalindrome("Hello, world!")); // false
+console.log('isPalindrome -> ',isPalindrome("А роза упала на лапу Азора")); // true
+// console.log(isPalindrome("Hello, world!")); // false

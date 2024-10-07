@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export function Example() {
   const [count, setCount] = useState(0);
@@ -10,9 +10,7 @@ export function Example() {
   return (
     <div>
       <p>Вы кликнули {count} раз</p>
-      <button onClick={() => setCount(count + 1)}>
-        Нажми меня
-      </button>
+      <button onClick={() => setCount(count + 1)}>Нажми меня</button>
     </div>
   );
 }

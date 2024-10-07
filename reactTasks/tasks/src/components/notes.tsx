@@ -52,6 +52,43 @@ export const PhoneBook: React.FC = () => {
     setPhone("");
   };
 
+  ////////////////
+  // keyof train
+  interface Person {
+    name: string;
+    age: number;
+    email: string;
+  }
+
+  function getProperty<T, K extends keyof T>(obj: T, key: K) {
+    return obj[key];
+  }
+
+  const person: Person = {
+    name: "Vasia",
+    age: 32,
+    email: "john@example.com",
+  };
+
+  const age = getProperty(person, "age");
+  const persoName = getProperty(person, "name");
+  const email = getProperty(person, "email");
+  console.log(age);
+  console.log(persoName);
+  console.log(email);
+  //////////////////
+
+  type ReadonlyPerson = {
+    readonly [K in keyof Person]: Person[K];
+  };
+  const readonlyPerson: ReadonlyPerson = {
+    name: "John",
+    age: 30,
+    email: "john@example.com",
+  };
+
+  // readonlyPerson.name = "Jane"; // Ошибка: Cannot assign to 'name' because it is a read-only property.
+
   return (
     <div>
       <h1>Телефонная книга</h1>

@@ -23,10 +23,10 @@ const CreatePortal = () => {
   const root = document.getElementById("root");
 
   return (
-    <>
+    <div>
       {createPortal(<Modal open={open} />, root)}
       <button onClick={() => isOpen(true)}>dffd</button>
-    </>
+    </div>
   );
 };
 

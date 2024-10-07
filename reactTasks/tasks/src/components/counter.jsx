@@ -20,14 +20,17 @@ function Counter() {
   };
   console.log("render");
   return (
-    <>
+    <div>
       <div>Задача</div>
       <h1>Counter / useRef / setInterval</h1>
       <div className="card">
         <button onClick={handleClick}>count is {count}</button>
-        <p>сделать чтобы счётчик обновлял состояние, а интервал отображал состояние каждую секунду</p>
+        <p>
+          сделать чтобы счётчик обновлял состояние, а интервал отображал
+          состояние каждую секунду
+        </p>
       </div>
-    </>
+    </div>
   );
 }
 

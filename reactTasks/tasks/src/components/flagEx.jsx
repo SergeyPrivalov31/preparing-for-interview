@@ -13,5 +13,5 @@ export const FlagEx = () => {
 
   console.log("render");
 
-  return <>div</>;
+  return <div>Открой консоль</div>;
 };

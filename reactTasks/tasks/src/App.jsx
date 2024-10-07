@@ -1,5 +1,5 @@
 import Counter from "./components/counter";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
 import { Root } from "./routes/root";
 import CreatePortal from "./components/createPortal";
 import { Example } from "./components/example";
@@ -8,11 +8,18 @@ import { ActionButtonRef } from "./components/refFix";
 import { FetchTodosComponent } from "./components/fetchTodos";
 import { IntervalEx } from "./components/intervalEx";
 import { FlagEx } from "./components/flagEx";
+import { WhoTheFirst } from "./components/whoTheFirstRender";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: (
+      <div>
+        <h1>Выбери задание</h1>
+
+        <h5>Открой инструменты разработчика</h5>
+      </div>
+    ),
   },
   {
     path: "tasks/notes",
@@ -46,12 +53,15 @@ const router = createBrowserRouter([
     path: "tasks/FlagEx",
     element: <FlagEx />,
   },
+  {
+    path: "tasks/WhoTheFirst",
+    element: <WhoTheFirst />,
+  },
 ]);
 
 function App() {
   return (
     <>
-      <div></div>
       <Root />
 
       <RouterProvider router={router} />
