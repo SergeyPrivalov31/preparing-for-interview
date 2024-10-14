@@ -12,7 +12,7 @@ export const Root = () => {
     },
     {
       id: "ex",
-      name: "ex",
+      name: "PAGE title",
       href: `/tasks/ex`,
     },
     {
@@ -45,10 +45,20 @@ export const Root = () => {
       name: "WhoTheFirst",
       href: `/tasks/WhoTheFirst`,
     },
+    {
+      id: "Refactoring",
+      name: "Refactoring",
+      href: `/tasks/Refactoring`,
+    },
+    {
+      id: "RefactoringTWO",
+      name: "RefactoringTWO",
+      href: `/tasks/RefactoringTWO`,
+    },
   ];
 
   return (
-    <div style={{ display: "flex", margin: "0.5em" }}>
+    <div style={{ margin: "0.1em" }}>
       {allTabs.map(({ id, name, href }) => {
         return (
           <button

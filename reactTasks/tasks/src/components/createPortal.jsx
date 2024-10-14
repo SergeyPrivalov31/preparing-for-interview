@@ -25,7 +25,7 @@ const CreatePortal = () => {
   return (
     <div>
       {createPortal(<Modal open={open} />, root)}
-      <button onClick={() => isOpen(true)}>dffd</button>
+      <button onClick={() => isOpen(true)}>PORTAL</button>
     </div>
   );
 };

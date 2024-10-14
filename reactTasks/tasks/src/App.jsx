@@ -1,5 +1,5 @@
 import Counter from "./components/counter";
-import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Root } from "./routes/root";
 import CreatePortal from "./components/createPortal";
 import { Example } from "./components/example";
@@ -9,21 +9,30 @@ import { FetchTodosComponent } from "./components/fetchTodos";
 import { IntervalEx } from "./components/intervalEx";
 import { FlagEx } from "./components/flagEx";
 import { WhoTheFirst } from "./components/whoTheFirstRender";
+import { Refactoring } from "./components/refactoring";
+import { RefactoringTWO } from "./components/refactoringTWO";
+
+const className = {
+  display: "flex",
+  margin: "20px",
+  alignItems: "center",
+};
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <div>
-        <h1>Выбери задание</h1>
-
-        <h5>Открой инструменты разработчика</h5>
+      <div style={className}>
+        <h2>
+          Выбери задание <br />
+          <p>открой инструменты разработчика</p>
+        </h2>
       </div>
     ),
   },
   {
     path: "tasks/notes",
-    element: <PhoneBook />,
+    element: <PhoneBook className={className} />,
   },
   {
     path: "tasks/counter",
@@ -56,6 +65,14 @@ const router = createBrowserRouter([
   {
     path: "tasks/WhoTheFirst",
     element: <WhoTheFirst />,
+  },
+  {
+    path: "tasks/Refactoring",
+    element: <Refactoring />,
+  },
+  {
+    path: "tasks/RefactoringTWO",
+    element: <RefactoringTWO />,
   },
 ]);
 
