@@ -4,9 +4,10 @@ export const FlagEx = () => {
   const [flag, setFlag] = useState(false);
 
   useEffect(() => {
-    setFlag(true);
-
-    console.log("effect run");
+    if (!flag) {
+      setFlag(true);
+      console.log("effect run");
+    }
 
     return () => console.log("effect clean up");
   }, [flag]);

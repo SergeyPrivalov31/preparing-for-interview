@@ -55,6 +55,16 @@ export const Root = () => {
       name: "RefactoringTWO",
       href: `/tasks/RefactoringTWO`,
     },
+    {
+      id: "AppleSamsungTypesProps",
+      name: "AppleSamsungTypesProps",
+      href: `/tasks/AppleSamsungTypesProps`,
+    },
+    {
+      id: "LoopUseFffect",
+      name: "LoopUseFffect",
+      href: `/tasks/LoopUseFffect`,
+    },
   ];
 
   return (

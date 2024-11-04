@@ -11,6 +11,8 @@ import { FlagEx } from "./components/flagEx";
 import { WhoTheFirst } from "./components/whoTheFirstRender";
 import { Refactoring } from "./components/refactoring";
 import { RefactoringTWO } from "./components/refactoringTWO";
+import { AppleSamsungTypesProps } from "./components/appleSamsungTypesProps";
+import { LoopUseFffect } from "./components/loopUseFffect";
 
 const className = {
   display: "flex",
@@ -73,6 +75,14 @@ const router = createBrowserRouter([
   {
     path: "tasks/RefactoringTWO",
     element: <RefactoringTWO />,
+  },
+  {
+    path: "tasks/AppleSamsungTypesProps",
+    element: <AppleSamsungTypesProps />,
+  },
+  {
+    path: "tasks/LoopUseFffect",
+    element: <LoopUseFffect />,
   },
 ]);
 

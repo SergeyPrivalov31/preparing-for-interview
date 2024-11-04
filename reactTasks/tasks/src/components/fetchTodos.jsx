@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { debounce } from "../../../../interviewTasks/debounce";
+// import { debounce } from "../../../../interviewTasks/debounce";
 
 const getTodos = async (number) => {
   const response = await fetch(
@@ -13,15 +13,18 @@ export const FetchTodosComponent = () => {
   const [value, setValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const fetchTodos = debounce(async (number) => {
-    const data = await getTodos(number);
-    if (data) {
-      console.log("data", data);
-      setTodos(data);
-      number && setTodos([data]);
-      setIsLoading(false);
-    }
-  }, 3000);
+  const fetchTodos =
+    //  debounce(
+    async (number) => {
+      const data = await getTodos(number);
+      if (data) {
+        console.log("data", data);
+        setTodos(data);
+        number && setTodos([data]);
+        setIsLoading(false);
+      }
+    };
+  // , 3000);
 
   useEffect(() => {
     setIsLoading(true);
